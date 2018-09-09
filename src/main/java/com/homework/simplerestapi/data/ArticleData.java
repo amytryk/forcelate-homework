@@ -1,29 +1,11 @@
-package com.homework.simplerestapi.entity;
+package com.homework.simplerestapi.data;
 
-import javax.persistence.*;
+import com.homework.simplerestapi.entity.Color;
 
-@Entity
-public class Article {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ArticleData {
     private Long id;
     private String text;
-
-    @Enumerated
     private Color color;
-
-    @ManyToOne
-    private User user;
-
-    public Article() {
-    }
-
-    public Article(String text, Color color, User user) {
-        this.text = text;
-        this.color = color;
-        this.user = user;
-    }
 
     public Long getId() {
         return id;
@@ -49,21 +31,12 @@ public class Article {
         this.color = color;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     @Override
     public String toString() {
-        return "Article{" +
+        return "ArticleData{" +
                 "id=" + id +
                 ", text='" + text + '\'' +
                 ", color=" + color +
-                ", user=" + user +
                 '}';
     }
 }
