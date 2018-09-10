@@ -1,6 +1,7 @@
 package com.homework.simplerestapi.controller;
 
 import com.homework.simplerestapi.data.UserData;
+import com.homework.simplerestapi.entity.Color;
 import com.homework.simplerestapi.facade.UserFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,15 +28,20 @@ public class UserController {
     }
 
     @GetMapping("/search/age/{age}")
-    public List<UserData> searchByAge(@PathVariable int age){
+    public List<UserData> searchByAge(@PathVariable int age) {
 
         return userFacade.searchByAge(age);
     }
 
-    @GetMapping("/search/article")
-    public List<UserData> searchByArticles(){
+    @GetMapping("/search/names")
+    public List<String> searchUserNamesByArticles() {
 
-        return userFacade.searchByArticle();
+        return userFacade.searchUserNamesByArticle();
     }
 
+    @GetMapping("/search/articlecolor/{color}")
+    public List<UserData> searchUserByArticleColor(@PathVariable Color color) {
+
+        return userFacade.searchUserByArticleColor(color);
+    }
 }

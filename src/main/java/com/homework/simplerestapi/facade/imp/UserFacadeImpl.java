@@ -1,6 +1,7 @@
 package com.homework.simplerestapi.facade.imp;
 
 import com.homework.simplerestapi.data.UserData;
+import com.homework.simplerestapi.entity.Color;
 import com.homework.simplerestapi.entity.User;
 import com.homework.simplerestapi.facade.UserFacade;
 import com.homework.simplerestapi.service.UserService;
@@ -33,7 +34,7 @@ public class UserFacadeImpl implements UserFacade {
     @Override
     public List<UserData> searchByAge(int age) {
         List<User> result = userService.findAllWhereAgeMoreThan(age);
-        List<UserData>  userDataList  = result.stream()
+        List<UserData> userDataList = result.stream()
                 .map(user -> userToDtoConverter.convert(user))
                 .collect(Collectors.toList());
 
@@ -41,11 +42,18 @@ public class UserFacadeImpl implements UserFacade {
     }
 
     @Override
-    public List<UserData> searchByArticle() {
-        List<User> result = userService.findAllWhereNumberOfArticlesMoreThanThree();
-        List<UserData> userData = result.stream()
-                .map(user -> userToDtoConverter.convert(user))
+    public List<String> searchUserNamesByArticle() {
+        return userService.findUniqueNamesWhereNumberOfArticlesMoreThanThree();
+    }
+
+    @Override
+    public List<UserData> searchUserByArticleColor(Color color) {
+        List<User> result = userService.findAllByArticleColor(color);
+        List<UserData> userData = result.stream().map(user -> userToDtoConverter.convert(user))
                 .collect(Collectors.toList());
+
         return userData;
     }
+
+
 }
