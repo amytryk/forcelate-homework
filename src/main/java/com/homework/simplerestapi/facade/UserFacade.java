@@ -8,6 +8,7 @@ public interface UserFacade {
 
     UserData save(UserData userData);
     List<UserData> searchByAge(int age);
+    List<UserData> searchByArticle();
 
 
 }

@@ -24,4 +24,9 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAllWhereAgeMoreThan(age);
     }
 
+    @Override
+    public List<User> findAllWhereNumberOfArticlesMoreThanThree() {
+
+        return userRepository.findAllWhereNumberOfArticlesMoreThanThree();
+    }
 }

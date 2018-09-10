@@ -39,4 +39,13 @@ public class UserFacadeImpl implements UserFacade {
 
         return userDataList;
     }
+
+    @Override
+    public List<UserData> searchByArticle() {
+        List<User> result = userService.findAllWhereNumberOfArticlesMoreThanThree();
+        List<UserData> userData = result.stream()
+                .map(user -> userToDtoConverter.convert(user))
+                .collect(Collectors.toList());
+        return userData;
+    }
 }

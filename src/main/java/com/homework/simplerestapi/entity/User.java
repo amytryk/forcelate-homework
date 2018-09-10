@@ -1,7 +1,5 @@
 package com.homework.simplerestapi.entity;
 
-import org.hibernate.annotations.Cascade;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -8,5 +8,6 @@ public interface UserService {
 
     User save(User user);
     List<User> findAllWhereAgeMoreThan(int age);
+    List<User> findAllWhereNumberOfArticlesMoreThanThree();
 
 }

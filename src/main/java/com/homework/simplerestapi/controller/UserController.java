@@ -32,4 +32,10 @@ public class UserController {
         return userFacade.searchByAge(age);
     }
 
+    @GetMapping("/search/article")
+    public List<UserData> searchByArticles(){
+
+        return userFacade.searchByArticle();
+    }
+
 }
