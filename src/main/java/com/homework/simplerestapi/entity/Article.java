@@ -2,6 +2,7 @@ package com.homework.simplerestapi.entity;
 
 import javax.persistence.*;
 
+
 @Entity
 public class Article {
 
@@ -13,7 +14,7 @@ public class Article {
     @Enumerated
     private Color color;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private User user;
 
     public Article() {

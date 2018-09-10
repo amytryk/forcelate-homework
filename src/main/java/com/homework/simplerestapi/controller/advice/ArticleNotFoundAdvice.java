@@ -1,4 +1,4 @@
-package com.homework.simplerestapi.controller;
+package com.homework.simplerestapi.controller.advice;
 
 import com.homework.simplerestapi.exception.ArticleNotFoundException;
 import org.springframework.http.HttpStatus;

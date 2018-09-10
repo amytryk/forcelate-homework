@@ -1,4 +1,4 @@
-package com.homework.simplerestapi.controller.advice;
+package com.homework.simplerestapi.controller;
 
 import com.homework.simplerestapi.data.ArticleData;
 import com.homework.simplerestapi.facade.ArticleFacade;
@@ -12,12 +12,12 @@ public class ArticleController {
     @Autowired
     private ArticleFacade articleFacade;
 
-    @RequestMapping(method = RequestMethod.PUT, path = "/save")
+    @PutMapping("/save")
     public ArticleData save(@RequestBody ArticleData articleData) {
         return articleFacade.save(articleData);
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/{id}")
+    @GetMapping("/{id}")
     public ArticleData get(@PathVariable Long id) {
         return articleFacade.getById(id);
     }

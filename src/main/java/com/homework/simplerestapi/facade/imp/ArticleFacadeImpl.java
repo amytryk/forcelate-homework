@@ -5,6 +5,7 @@ import com.homework.simplerestapi.entity.Article;
 import com.homework.simplerestapi.facade.ArticleFacade;
 import com.homework.simplerestapi.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -13,26 +14,25 @@ public class ArticleFacadeImpl implements ArticleFacade {
     @Autowired
     private ArticleService articleService;
 
+    @Autowired
+    private Converter<ArticleData, Article> dtoToArticleConverter;
+
+    @Autowired
+    private Converter<Article, ArticleData> articleToDtoConverter;
+
     @Override
     public ArticleData save(ArticleData articleData) {
-        Article article = new Article();
-        article.setText(articleData.getText());
-        article.setColor(articleData.getColor());
+        Article article = dtoToArticleConverter.convert(articleData);
 
         Article savedArticle = articleService.save(article);
-        articleData.setId(savedArticle.getId());
-        return articleData;
+        return articleToDtoConverter.convert(savedArticle);
     }
 
     @Override
     public ArticleData getById(Long id) {
         Article article = articleService.getById(id);
 
-        ArticleData articleData = new ArticleData();
-        articleData.setId(article.getId());
-        articleData.setText(article.getText());
-        articleData.setColor(article.getColor());
-        return articleData;
+        return articleToDtoConverter.convert(article);
     }
 
 }

@@ -1,6 +1,13 @@
 package com.homework.simplerestapi.entity;
 
-import javax.persistence.*;
+import org.hibernate.annotations.Cascade;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
@@ -12,16 +19,16 @@ public class User {
     private String name;
     private int age;
 
-    @OneToMany(mappedBy = "user")
-    private List<Article> article;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
+    private List<Article> articles;
 
     public User() {
     }
 
-    public User(String name, int age, List<Article> article) {
+    public User(String name, int age, List<Article> articles) {
         this.name = name;
         this.age = age;
-        this.article = article;
+        this.articles = articles;
     }
 
     public Long getId() {
@@ -48,12 +55,12 @@ public class User {
         this.age = age;
     }
 
-    public List<Article> getArticle() {
-        return article;
+    public List<Article> getArticles() {
+        return articles;
     }
 
-    public void setArticle(List<Article> article) {
-        this.article = article;
+    public void setArticles(List<Article> articles) {
+        this.articles = articles;
     }
 
     @Override
@@ -62,7 +69,7 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
-                ", article=" + article +
+                ", articles=" + articles +
                 '}';
     }
 }
