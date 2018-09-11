@@ -37,7 +37,7 @@ public class UserController {
     @GetMapping("/search/names")
     public List<String> searchNamesByArticlesNumber() {
 
-        return userFacade.searchNamesByArticlesNumber(3);
+        return userFacade.searchNamesByArticlesNumber(3L);
     }
 
     @GetMapping("/search/byArticleColor")

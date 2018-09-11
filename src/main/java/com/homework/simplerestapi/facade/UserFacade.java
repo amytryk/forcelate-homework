@@ -9,7 +9,7 @@ public interface UserFacade {
 
     UserData save(UserData userData);
     List<UserData> searchByAge(int age);
-    List<String> searchNamesByArticlesNumber(int articlesNumber);
+    List<String> searchNamesByArticlesNumber(long articlesNumber);
     List<UserData> searchByArticleColor(Color color);
 
 

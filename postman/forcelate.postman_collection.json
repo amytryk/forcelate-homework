@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "ab4d0776-4ad7-4536-b156-cdfc1ae95065",
+		"name": "forcelate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create article",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"text\":\"Test article 1\", \"color\": \"PURPLE\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/articles/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"articles",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get article by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/articles/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"articles",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search user by age",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/users/search/byAge?userAgeIsMoreThan=22",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"search",
+						"byAge"
+					],
+					"query": [
+						{
+							"key": "userAgeIsMoreThan",
+							"value": "22"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"test name\",\n\"age\":30,\n\"articles\":[\n\t{\"text\" : \"article1\", \"color\" : \"WHITE\"},\n\t{\"text\" : \"article2\", \"color\" : \"GREY\"},\n\t{\"text\" : \"article3\", \"color\" : \"GREEN\"}\n\t]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search user names by articles number",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/users/search/names",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"search",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search by article color",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/users/search/byArticleColor?articleColor=GREY",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"search",
+						"byArticleColor"
+					],
+					"query": [
+						{
+							"key": "articleColor",
+							"value": "GREY"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

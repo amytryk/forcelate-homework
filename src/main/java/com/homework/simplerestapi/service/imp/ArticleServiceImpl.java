@@ -25,9 +25,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public Article getById(Long id) {
         Optional<Article> result = articleRepository.findById(id);
-        if (result.isPresent()) {
-            return result.get();
-        }
-        throw new ArticleNotFoundException("Could not find article by id " + id);
+
+        return result.orElseThrow(() -> new ArticleNotFoundException("Could not find article by id " + id));
     }
 }

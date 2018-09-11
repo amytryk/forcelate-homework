@@ -51,4 +51,5 @@ public class ArticleServiceImplTest {
         Article article = articleService.getById(1L);
         assertThat(article).isNotNull();
     }
+
 }

@@ -42,7 +42,7 @@ public class UserFacadeImpl implements UserFacade {
     }
 
     @Override
-    public List<String> searchNamesByArticlesNumber(int articlesNumber) {
+    public List<String> searchNamesByArticlesNumber(long articlesNumber) {
 
         return userService.findUniqueNamesWhereArticlesNumberMoreThan(articlesNumber);
     }

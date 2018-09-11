@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<String> findUniqueNamesWhereArticlesNumberMoreThan(int articlesNumber) {
+    public List<String> findUniqueNamesWhereArticlesNumberMoreThan(long articlesNumber) {
 
         return userRepository.findUniqueNamesWhereArticlesNumberMoreThan(articlesNumber);
     }
