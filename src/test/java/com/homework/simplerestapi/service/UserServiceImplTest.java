@@ -41,7 +41,7 @@ public class UserServiceImplTest {
         assertThat(savedUser).isNotNull();
         assertThat(savedUser.getId()).isNotNull();
         assertThat(savedUser.getName()).isEqualTo("test");
-        assertThat(savedUser.getAge()).isEqualTo(20);
+        assertThat(savedUser.getAge()).isEqualTo(26);
     }
 
     @Test
