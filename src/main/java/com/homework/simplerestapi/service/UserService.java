@@ -9,7 +9,7 @@ public interface UserService {
 
     User save(User user);
     List<User> findAllWhereAgeMoreThan(int age);
-    List<String> findUniqueNamesWhereNumberOfArticlesMoreThanThree();
+    List<String> findUniqueNamesWhereArticlesNumberMoreThan(int articlesNumber);
     List<User> findAllByArticleColor(Color color);
 
 }

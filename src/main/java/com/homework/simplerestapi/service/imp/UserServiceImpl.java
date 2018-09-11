@@ -12,8 +12,12 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public User save(User user) {
@@ -26,9 +30,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<String> findUniqueNamesWhereNumberOfArticlesMoreThanThree() {
+    public List<String> findUniqueNamesWhereArticlesNumberMoreThan(int articlesNumber) {
 
-        return userRepository.findUniqueNamesWhereNumberOfArticlesMoreThanThree();
+        return userRepository.findUniqueNamesWhereArticlesNumberMoreThan(articlesNumber);
     }
 
     @Override

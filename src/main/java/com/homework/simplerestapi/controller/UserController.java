@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -27,21 +28,21 @@ public class UserController {
         return userFacade.save(userData);
     }
 
-    @GetMapping("/search/age/{age}")
-    public List<UserData> searchByAge(@PathVariable int age) {
+    @GetMapping("/search/byAge")
+    public List<UserData> searchByAge(@RequestParam("userAgeIsMoreThan") int age) {
 
         return userFacade.searchByAge(age);
     }
 
     @GetMapping("/search/names")
-    public List<String> searchUserNamesByArticles() {
+    public List<String> searchNamesByArticlesNumber() {
 
-        return userFacade.searchUserNamesByArticle();
+        return userFacade.searchNamesByArticlesNumber(3);
     }
 
-    @GetMapping("/search/articlecolor/{color}")
-    public List<UserData> searchUserByArticleColor(@PathVariable Color color) {
+    @GetMapping("/search/byArticleColor")
+    public List<UserData> searchByArticleColor(@RequestParam("articleColor") Color color) {
 
-        return userFacade.searchUserByArticleColor(color);
+        return userFacade.searchByArticleColor(color);
     }
 }

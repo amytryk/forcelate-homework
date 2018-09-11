@@ -42,12 +42,13 @@ public class UserFacadeImpl implements UserFacade {
     }
 
     @Override
-    public List<String> searchUserNamesByArticle() {
-        return userService.findUniqueNamesWhereNumberOfArticlesMoreThanThree();
+    public List<String> searchNamesByArticlesNumber(int articlesNumber) {
+
+        return userService.findUniqueNamesWhereArticlesNumberMoreThan(articlesNumber);
     }
 
     @Override
-    public List<UserData> searchUserByArticleColor(Color color) {
+    public List<UserData> searchByArticleColor(Color color) {
         List<User> result = userService.findAllByArticleColor(color);
         List<UserData> userData = result.stream().map(user -> userToDtoConverter.convert(user))
                 .collect(Collectors.toList());
