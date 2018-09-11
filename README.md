@@ -1,5 +1,6 @@
 <h2>Simple Rest Api</h2>
 
+<h3>Run</h3>
 Run the following command       
 Linux/Mac       
 $ ./mvnw clean package
